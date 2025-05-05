@@ -1,0 +1,332 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Case Study - Accessible Components</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div id="progressContainer">
+      <div id="scrollProgress"></div>
+    </div>
+
+    <header class="hero-header" id="hero-header">
+       <div class="hero-container">
+        <h1 class="hero-title">Search Bar <span class="kern">Redesign</span></h1>
+        <img src="assets/potential-logo.png" alt="Image of Search Bar" class="hero-image">
+        <div class="hero-column-wrapper">
+          <div class="hero-left-column">
+            <div class="hero-left-heading">Role:</div>
+            <div class="hero-left-body">UX Design, UX Research</div>
+            <div class="hero-left-heading">Design Tool:</div>
+            <div class="hero-left-body">Figma</div>
+          </div>
+          <div class="hero-right-column">
+            <p class="hero-subtitle">Identifying and addressing inconsistencies across accessible aspects of search bar implementations.</p>
+          </div>
+        </div> 
+      </div>
+    </header>
+
+    <div class="nav-container">
+      <nav id="menu" class="list-none w-[60%] md:w-[25%]">
+        <ul class="list-none">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#input">Input</a></li>
+          <li><a href="#output">Output</a></li>
+          <li><a href="#state-models">State Models</a></li>
+          <li><a href="#redesign">Redesign</a></li>
+          <li><a href="#conclusion">Conclusion</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="content-container">
+      <section id="overview">
+        <div class="overview-container">
+          <h2 id="overview-header">Overview:</h2>
+          <p>Search bars are a staple of the digital experience. Whether you're looking for a specific video, tracking down a specific social media profile or looking for a perfect article, search bars help guide us to exactly what we're looking for. But while the core function is the same, each platform approaches this tool differently, and unfortunately not all websites do it well. As I dove deeper into the user experience of search bars. I realized a critical truth: </p>
+            <blockquote><i><b>Search bars are only effective if they are usable and accessible</b></i></blockquote>
+          <p style="margin-top: 30px">Without these qualities, even the most beautifully designed search tool will fail to reach it's full potential. I set out to explore this phenomenon across different applications, aiming to understand how inconsistencies in their designs might impact users. The objective was clear: identify common pain points and recommend a redesign that could enhance usability and accessiblity for all users. </p>
+          <b><p style="margin-top: 30px;">More specifically, thoughout the duration of this case study I:</p></b>
+          <ol>
+            <li>Analyzed the input and output states of search bars across three applications</li>
+            <li>Selected one of the three aforermentioned applications and created state models for both mouse and keyboard users</li>
+            <li>Created a redesigned search bar that addresses some of the inconsistencies I noticed during the analyses</li>
+            <li>Created a state model for the redesigned component</li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="input">
+        <div class="input-container">
+          <h2>Input Analysis</h2>
+          <p> 
+            When proposing a search bar redesign, it's crucial to understand how users interact with it in the first place. This means examinign how search bars are implemented across different platforms, especially in terms of user input methods. 
+          To begin, I focused on the search bars of three different applications: <b>Google Chrome, EdStem, and TikTok</b>.</p>
+
+          <p style="margin-top: 30px"> To better understand each platform's approach, I captured key interactions with their search bars in different states. The slideshows included below highlight different design choices across Google Chrome, TikTok and EdStem.</p>
+                  <p style="margin-top: 45px"><b>INSERT SLIDESHOWS HERE</b></p>
+
+          <p style="margin-top: 30px">Beyond the screenshots included above, I noticed some key differences in the inputs of each search bar. I have summarized these differences in the table below: </p>
+          <div class="input-table">
+            <table>
+              <thead>
+              <tr>
+                  <th></th>
+                  <th>Google Chrome</th>
+                  <th>TikTok</th>
+                  <th>EdStem</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <th>Mouse/Touchpad</th>
+                  <td>
+                    <li><b>"Click</b> on the search bar but cannot enter any input</li>
+                    <li><b>"Click</b> on trending/suggested searches</li>
+                    <li><b>"Click and Drag"</b> hyperlinks to webpages on the results page to the search bar</li>
+                    <li><b>"Click and Drag"</b> to select parts of the the inputted text to copy, paste or cut text into the search bar</li>
+                    <li><b>"Click"</b> out of the search bar to remove focus from the search bar</li>
+                  </td>
+
+                  <td>
+                    <li><b>"Click"</b> on the serach bar to insert text</li>
+                    <li><b>"Right Click"</b> to access the menu bar to allow for pasted content</li>
+                    <li><b>"Click</b> out of the serach bar to remove focus from it</li>
+                    <li>Overall limited options for user input</li>
+                  </td>
+
+                  <td>
+                    <li><b>"Click"</b> into the search bar</li>
+                    <li><b>"Right Click"</b> to paste in previously copied text</li>
+                    <li><b>"Double Click"</b> to select specific words</li>
+                    <li><b>"Click and Drag"</b> across words to select multiple words</li>
+                    <li><b>"Click and Drag"</b> existing discussions to the search bar</li>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Keyboard</th>
+                  <td>
+                    <li><b>"Tab"</b> to focus on teh search bar</li>
+                    <li>Can <b>automatically type</b> into the search bar after focus</li>
+                    <li><b>"Enter</b> to sumbit search terms</li>
+                    <li><b>"Ctrl+V"</b> to paste in previously copied content</li>
+                  </td>
+
+                  <td>
+                    <li><b>"Tab"</b> to focus on the search bar</li>
+                    <li><b>"Type"</b> in words and phrases immediately</li>
+                    <li><b>"Enter"</b> to submit search terms</li>
+                  </td>
+
+                  <td>
+                    <li><b>"Tab"</b> to focus on the search bar</li>
+                    <li><b>"Type"</b> into the search bar</li>
+                    <li><b>"Enter"</b> does not do anything on Edstem</li>
+                    <li><b>Cannot use the arrow keys</b> to navigate through the results</li>
+                  </td>
+                </tr>
+
+                <tr>
+                  <th>Touch</th>
+                  <td>
+                    <li><b>"Tap"</b> on search bar to start typing</li>
+                    <li><b>"Type"</b> in search terms using the device's keyboard</li>
+                    <li><b>No search button available</b> only the enter key on the device's keyboard</li>
+                  </td>
+
+                  <td>
+                    <li><b>"Tap"</b> the maginifying glass to access the search bar from the For You Page</li>
+                    <li><b>Can immediately start typing</b> in words or phrases</li>
+                  </td>
+
+                  <td>
+                    <li><b>"Tap"</b> on the magnifying glass icon to focus on the search bar</li>
+                    <li><b>"Type"</b> in search terms using device's keyboard</li>
+                </tr>
+              </tbody>
+            </table>
+            <p style="margin-top: 30px">Based on the differences listed in the table aboce, I realized that search bar applications could benefit from standardizing inputs in the following ways:
+              <ul>
+                <li>Allow for both keyboard only and mouse only inputs</li>
+                <li>Use enter to submit search terms</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="output">
+        <div class="output-container">
+          <h2>Output Analysis</h2>
+          <p style="margin-bottom: 20px;">After analyzing the inputs across these implementations, I then turned to analyze the outputs users receive when interacting with search bars on these websites. I included my findings in the table below.</p>
+          <div class="output-table">
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Google Chrome</th>
+                  <th>TikTok</th>
+                  <th>Edstem</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <th>Mouse/Touchpad</th>
+                  <td>
+                    <li><b>Cursor appears</b> after user clicks into the search bar</li>
+                    <li>When the search bar is hovered over<b> background color switches</b> to a lighter grey</li>
+                    <li><b>Suggested search terms are highlighted</b> in a lighter grey when hovered over</li>
+                  </td>
+
+                  <td>
+                    <li>When search bar is clicked on <b> a new section appears</b> that contains the seach bar with a red cursor inside</li>
+                  </td>
+
+                  <td>
+                    <li>When the search bar is clicked <b>cursor appears</b> in the search bar and the <b>rest of the screen is shadowed</b> and the search bar <b>increases in size</b></li>
+                    <li>When hovered over, the mouse pointer<b> switches to a cursor</b></li>
+                    <li>As users type, relevant results <b> automatically populate</b></li>
+                    <li>When hovering over results, the background of the results <b>switches from white to light blue</b></li>
+                  </td>
+                </tr>
+
+                <tr>
+                  <th>Keyboard</th>
+                  <td>
+                    <li><b>Cursor appears </b>when the search bar is in focus</li>
+                    <li>If on the original search page, the <b>search bar will move to the top of the screen</b> after "Enter" is pressed</li>
+                    <li>If already on the results page, the <b>page will briefly go blank</b> before showing the new results</li>
+                  </td>
+                  <td>
+                    <li>When the user begins typing<b> an additional section appears</b> containing the search bar</li>
+                    <li>After clicking enter to submit the search terms a <b>new page containing all of teh relevant users appear</b></li>
+                  </td>
+
+                  <td>
+                    <li>When a user begins typing <b>the search bar increases in size</b> and the <b>rest of the page is shaded out</b></li>
+                    <li>As the user types <b>relevant results appear</b></li>
+                  </td>
+                </tr>
+
+                <tr>
+                  <th>Focus Order</th>
+                  <td>
+                    <li>Focus order traverses <b>horizontally</b> from the top of the page to the bottom</li>
+                  </td>
+                  <td>
+                    <li>The search bar is <b>second in focus order</b>, following the TikTok logo</li>
+                  </td>
+
+                  <td>
+                    <li>The focus order goes <b>across the header</b> then <b>down the "New Thread" menu</b> before reaching the search bar</li>
+                  </td>
+                </tr>
+
+                <tr>
+                  <th>Screen Recorder</th>
+                  <td>
+                    <li>When typing or deleting letters the screen reader just reads out the letter <b>without describing whether it is being typed or deleted</b></li>
+                    <li>When describing the search bar, the voice says <b>"search and edit text"</b> but does not specify that the search bar is in focus</li>
+                  </td>
+
+                  <td>
+                    <li>The screen reader lets the user know that the focus in in a combo box and that the user can either type or use Ctrl-Option-Space to display a series of choices, <b> although no choices appear after doing so.</b></li>
+                  </td>
+
+                  <td>
+                    <li>Screen Reader includes detail on <b>how to use the search bar</b> and on how to exit<b> the search bar using the keyboard</b></li>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="margin-top: 30px">Similarly to my input analyses, when observing the differences in search bar outputs across Google Chrome, TikTok, and Edstem, I realized that search bar implementation could benefit from the following standardizations:
+              <ul>
+                <li>Increasing the search bar size when it is in focus</li>
+                <li>Automatically populate relevant results as the user types</li>
+                <li>Outline the search bar in a noticeable color when it is in focus</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="state-models">
+        <h2>State Models</h2>
+        <p>To deepen my understanding of a search bar's interactions and accessibility, I created two state models that reflects the behavior I observed in the example applications. These models - one for <b>mouse users</b> and another for <b>keyboard users</b> helped me identify and analyze the different states that users move through when using search bars as well as the states I needed to anticipate in my redesign. </p>
+        <h3 style="margin-top: 20px;">Original Search Bar State Model for Mouse Users</h3>
+        <div class="image-container">
+          <img src="assets/og mouse model.png" alt="Search bar state model before redesign for mouse users" width="850" height="600">
+        </div>
+        <hr>
+
+        <h3 style="margin-top: 20px;">Original Search Bar State Model for Keyboard Users</h3>
+        <div class="image-container">
+          <img src="assets/og keyboard model.png" alt="Search bar state model before redesign for keyboard users" width="850" height="600">
+        </div>
+        <hr>
+      
+        <p style="margin-top: 15px;">After reflecting on the difference I noticed during the input and output analyses of search bar implementations across Google Chrome, TikTok and Edstem, as well as completing the state models above, I noticed the following pressing issues in current search bar applications:
+        <ul>
+            <li>The rest of the page darkens when the search bar is active.</li>
+            <li>Either trending or relevant searches reappear when the user clicks into the search bar after the user already used the search bar</li>
+            <li>The search bar returns to an identical active state after being used</li>
+            <li>When focused a light border appears around the edges of the search bar</li>
+            <li>Pressing the Space or Enter key or switches the search bar to the Active state</li>
+          </ul>
+        </p>
+        <p style="margin-bottom: 15px;">I combined these results into the revised state models shown below.</p>
+        <hr>
+
+        <h3 style="margin-top: 40px;">Redesigned State Model for Mouse Users</h3>
+        <div class="image-container">
+          <img src="assets/revised mouse keyboard.png" alt="Search bar state model after redesign for mouse users" width="850" height="600">
+        </div>
+        <hr>
+
+        <h3 style="margin-top: 40px;">Redesigned State Model for Keyboard Users</h3>
+        <div class="image-container">
+          <img src="assets/revised keyboard.png" alt="Search bar state model after redesign for keyboard users" width="875" height="600">
+        </div>
+      </section>
+
+      <section id="redesign">
+        <h2>Component Redesign</h2>
+        <p>As a result of the analyses above, I propose the following redesigns to search bars.</p>
+        <h3>Redesign #1: Removing Duplicated Icons</h3>
+        <i><h3>INSERT SLIDESHOW HERE</h3></i>
+
+        <h3>Redesign #2: Adding Outline When in Focus</h3>
+       <i><h3>INSERT SLIDESHOW HERE</h3></i> 
+
+      </section>
+
+      <section id="conclusion">
+        <h2>Conclusion</h2>
+        <p>
+          The search bars I observed were most usable when they clearly showed the focus states, populated results as the user types and dimmed the background to help users concentrate. 
+          I incorporates these elements into my redesign to reduce distractions and make the search experience more intuitive. However, I initially, overlooked screen reader accessibility; 
+          to address this, I would add aria-labels and ensure that dynamic suggestions are announced and navigable. 
+
+          My redesign solves a mismatch by not assuming prior knowledge of the interface, unlike Chrome's current interface which can confuse first-time users with redundant icons and unclear interactions. 
+          Simplifying the interface and emphasizing the active state of the search bar helps users focus on input rather than the rest of the page's contents. Inaccessaible inputs like missing focus indicators 
+          or inconsistent keyboard navigation can significantly hinder users with visual or motor impairments. For exapmle, TikTok's interface is difficult to navigate with a keyboard but easy with a mouse, exemplifying 
+          how non-mouse users are often deprioritized in component design. Overall, mouse and touch users are prioritized, which can exclude users that rely on keyboards or assistive technologies. 
+
+        </p>
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
+  </html>
