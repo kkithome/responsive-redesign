@@ -7,13 +7,13 @@
 body {
     font-family: 'DM Sans', sans-serif;
     line-height: 1.6;
-    background: #e9f5eb;
+    background: #dfe7f5;
     color: #2d2d2d;
 
 }
 
 header {
-    background: #229263f9;
+    background: #224692f9;
     padding: 4rem 2rem;
     text-align: center;
 }
@@ -128,7 +128,7 @@ img{
     font-family: "DM Serif Display", serif;
     font-size: 0.75cm;
     font-weight: 50;
-    color: #e1fff4;
+    color: #dfe7f5;
 }
 
 .hero-title {
@@ -192,7 +192,7 @@ img{
     left: 0;
     height: 100vh;
     max-width: 150px;
-    background-color: #e9f5eb;
+    background-color: #dfe7f5;
     padding-top: 60px;
     display: flex;
     flex-direction: column;
@@ -213,7 +213,7 @@ img{
 }
 
 #menu li:hover {
-    background-color: #229263f9;
+    background-color: #224692f9;
 }
 
 #menu a:hover {
